@@ -1,0 +1,88 @@
+public class Main {
+    public interface Voting{
+        public void set();
+        public void get();
+    }
+    public static void main(String[] args){
+        Voting Vote = new Voting() {
+            int idVote;
+            String Title, DateStart, DateFinish, Status;
+            @Override
+            public void set() {
+                this.idVote = 1;
+                this.Title = "Выборы в госдуму";
+                this.DateStart = "08.09.2023";
+                this.DateFinish = "10.09.2023";
+                this.Status = "Завершено";
+            }
+            @Override
+            public void get() {
+                System.out.println("ID: " + idVote + "\nТема голосования: " + Title + "\nДата начала голосования: "
+                        + DateStart + "\nДата окончания голосования: " + "\nСтатус голосования: " + Status);
+            }
+        };
+        Voting Question = new Voting() {
+            int idQuestion, idVote;
+            String Content, DateVote;
+            @Override
+            public void set() {
+                this.idQuestion = 1;
+                this.idVote = 1;
+                this.Content = "Избираются кандидаты в госдуму. Поддержите лайком)";
+                this.DateVote = "08.09.2023";
+            }
+            @Override
+            public void get() {
+                System.out.println("ID: " + idQuestion + "\nID голосования: " + idVote + "\nСодержание вопроса: "
+                        + Content + "\nДата голосования: " + DateVote);
+            }
+        };
+        Voting User = new Voting() {
+            int idUser;
+            String FirstName, SecondName, LastName, Email, Phone, Status;
+            @Override
+            public void set() {
+                this.idUser = 1;
+                this.FirstName = "Сергей";
+                this.SecondName = "Петров";
+                this.LastName = "Игоревич";
+                this.Email = "mail@yandex.ru";
+                this.Phone = "89893209393";
+                this.Status = "Проголосовал";
+            }
+            @Override
+            public void get() {
+                System.out.println("ID: " + idUser + "\nФИО: " + SecondName + " " + FirstName + " " + LastName
+                        + "\nПочта: " + Email + "\nНомер телефона: " + Phone + "\nСтатус голосующего: " + Status);
+            }
+        };
+        Voting Choice = new Voting() {
+            int idChoice, idQuestion, idUser;
+            String UserChoice;
+            @Override
+            public void set() {
+                this.idChoice = 1;
+                this.idQuestion = 1;
+                this.idUser = 1;
+                this.UserChoice = "Да";
+            }
+            @Override
+            public void get() {
+                System.out.println("ID: " + idChoice + "\nID вопроса голосования: " + idQuestion
+                        + "\nID голосующего: " + idUser + "\nВыбор голосующего: " + UserChoice);
+            }
+        };
+        System.out.println("Голосование: ");
+        Vote.set();
+        Vote.get();
+        System.out.println("\nВопросы голосования: ");
+        Question.set();
+        Question.get();
+        System.out.println("\nГолосующие: ");
+        User.set();
+        User.get();
+        System.out.println("\nРезультат голосования: ");
+        Choice.set();
+        Choice.get();
+    }
+}
