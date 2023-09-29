@@ -1,0 +1,77 @@
+public class Main {
+    public interface Voting{
+        public void start();
+
+    }
+    public static void main(String[] args){
+        Voting Vote = () -> {
+            int idVote;
+            String Title, DateStart, DateFinish, Status;
+
+            idVote = 1;
+            Title = "Выборы в госдуму";
+            DateStart = "08.09.2023";
+            DateFinish = "10.09.2023";
+            Status = "Завершено";
+
+            System.out.println("ID: " + idVote + "\nТема голосования: "
+                    + Title + "\nДата начала голосования: "
+                    + DateStart + "\nДата окончания голосования: "
+                    + DateFinish + "\nСтатус голосования: " + Status);
+        };
+        Voting Question = () -> {
+            int idQuestion, idVote;
+            String Content, DateVote;
+
+            idQuestion = 1;
+            idVote = 1;
+            Content = "Избираются кандидаты в " +
+                    "госдуму. Поддержите лайком)";
+            DateVote = "08.09.2023";
+
+            System.out.println("ID: " + idQuestion + "\nID голосования: "
+                    + idVote + "\nСодержание вопроса: "
+                    + Content + "\nДата голосования: " + DateVote);
+
+        };
+        Voting User = () -> {
+            int idUser;
+            String FirstName, SecondName, LastName, Email, Phone, Status;
+
+            idUser = 1;
+            FirstName = "Сергей";
+            SecondName = "Петров";
+            LastName = "Игоревич";
+            Email = "mail@yandex.ru";
+            Phone = "89893209393";
+            Status = "Проголосовал";
+
+            System.out.println("ID: " + idUser + "\nФИО: "
+                    + SecondName + " " + FirstName + " " + LastName
+                    + "\nПочта: " + Email + "\nНомер телефона: "
+                    + Phone + "\nСтатус голосующего: " + Status);
+        };
+        Voting Choice = () -> {
+            int idChoice, idQuestion, idUser;
+            String UserChoice;
+
+            idChoice = 1;
+            idQuestion = 1;
+            idUser = 1;
+            UserChoice = "Да";
+
+            System.out.println("ID: " + idChoice
+                    + "\nID вопроса голосования: " + idQuestion
+                    + "\nID голосующего: " + idUser
+                    + "\nВыбор голосующего: " + UserChoice);
+        };
+        System.out.println("Голосование: ");
+        Vote.start();
+        System.out.println("\nВопросы голосования: ");
+        Question.start();
+        System.out.println("\nГолосующие: ");
+        User.start();
+        System.out.println("\nРезультат голосования: ");
+        Choice.start();
+    }
+}
